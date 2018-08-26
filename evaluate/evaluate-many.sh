@@ -25,20 +25,16 @@ function queue-test(){
        -cwd                     \
        -notify                  \
        -l h_rt=00:10:00         \
-       -o '/dev/null'           \
-       -e '/dev/null'           \
+       -o 'stdout.log'          \
+       -e 'stderr.log'          \
        -N "$(basename $OUTPUT)" \
        -v IMPL="$IMPL"          \
        -v TEST="$TEST"          \
        -v OUTPUT="$OUTPUT"      \
        -v PYRET="$PYRET"        \
        -v PREHOOK="$PREHOOK"    \
-       ./evaluate.sh || exit 1
+       "$(dirname "${BASH_SOURCE[0]}")/evaluate.sh" || exit 1
 }
-
-while read -r "$TEST" "$IMPL"; do
-    echo $a $b
-done < text.txt
 
 function jobs-remaining(){
   qstat | tail -n+4 | wc -l
@@ -54,7 +50,7 @@ function join(){
        -o '/dev/null'        \
        -e '/dev/null'        \
        -N "join"             \
-       ./join.sh >stdout.txt &
+       "$(dirname "${BASH_SOURCE[0]}")/join.sh" >stdout.txt &
   # Show progress indicator
   pid=$! ; trap "kill $pid 2> /dev/null; qkill" EXIT ERR ; sleep 1; echo ""
   while kill -0 $pid 2> /dev/null; do

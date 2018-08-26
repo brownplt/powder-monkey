@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# CHANGE THIS AS NEEDED
+export PATH="/gpfs/main/home/jswrenn/.nvm/versions/node/v9.2.0/bin:$PATH"
+
 # Evaluate a given implementation against a given test.
 # Arguments:
 # 1 or $IMPL      path to impl
@@ -10,14 +13,16 @@
 
 IMPL="$(realpath "${1:-$IMPL}")"
 TEST="$(realpath "${2:-$TEST}")"
-OUTPUT="$(realpath "${3:-$OUTPUT}")"
-PYRET="$(realpath "${4:-$OUTPUT}")"
+OUTPUT="${3:-$OUTPUT}"
+PYRET="$(realpath "${4:-$PYRET}")"
 PREHOOK="$(realpath "${5:-$PREHOOK}" || echo "")"
 
 if [ ! -f "$IMPL" ]; then echo "ERROR: No such impl: $IMPL" >&2 || exit 1; fi
 if [ ! -f "$TEST" ]; then echo "ERROR: No such test: $TEST" >&2 || exit 1; fi
 if [ ! -d "$OUTPUT" ]; then mkdir -p "$OUTPUT" >&2 || exit 1; fi
 if [ ! -d "$PYRET" ]; then echo "ERROR: No pyret folder: $PYRET" >&2 || exit 1; fi
+
+echo "$OUTPUT"
 
 function report_error() {
   /gpfs/main/home/jswrenn/bin/jq                                     \
@@ -38,7 +43,6 @@ cp "$TEST" "$OUTPUT/tests.arr"
 if [ -f "$PREHOOK" ]; then
   ( cd "$OUTPUT" && bash "$PREHOOK" )
 fi
-
 
 # Compile and Execute
 cd "$PYRET" || exit 1
