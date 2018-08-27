@@ -2,12 +2,22 @@
 
 PYRET="$(realpath "${1:-$PYRET}")"
 
+declare -a IMPLS=({instructor-authored/wheats,student-authored/impls}/*)
+declare -a TESTS=(student-authored/tests/*)
+
+# Before doing a full run, it's a good idea to verify that student
+# submissions are in a runnable state.
+# Verify implementations by making sure they can be compiled.
+# Verify test suites by making sure they can be run against (though
+# not necessarily actually pass) one of the wheats.
+# <TODO>
+
 # Queue all pairwise matchups of impls and tests
-for DIR1 in corpus/* ; do
-  for DIR2 in corpus/* ; do
-    echo "$(realpath "$DIR1/code.arr")"  \
-         "$(realpath "$DIR2/tests.arr")" \
-         "$(realpath "result")/$(basename "$DIR1")_$(basename "$DIR2")"
+for IMPL in ${IMPLS[@]} ; do
+  for TEST in ${TESTS[@]}; ; do
+    echo "$(realpath "$IMPL")"  \
+         "$(realpath "$TEST")" \
+         "$(realpath "result")/$(basename "$TEST")_$(basename "$IMPL")"
   done
 done | ../evaluate/evaluate-many.sh "$PYRET" "prehook.sh"
 
