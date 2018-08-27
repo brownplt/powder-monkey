@@ -2,8 +2,8 @@
 
 PYRET="$(realpath "${1:-$PYRET}")"
 
-declare -a IMPLS=({instructor-authored/wheats,student-authored/impls}/*)
-declare -a TESTS=(student-authored/tests/*)
+declare -a IMPLS=(corpus/{instructor-authored/wheats,student-authored/impls}/*)
+declare -a TESTS=(corpus/student-authored/tests/*)
 
 # Before doing a full run, it's a good idea to verify that student
 # submissions are in a runnable state.
@@ -14,7 +14,7 @@ declare -a TESTS=(student-authored/tests/*)
 
 # Queue all pairwise matchups of impls and tests
 for IMPL in ${IMPLS[@]} ; do
-  for TEST in ${TESTS[@]}; ; do
+  for TEST in ${TESTS[@]};  do
     echo "$(realpath "$IMPL")"  \
          "$(realpath "$TEST")" \
          "$(realpath "result")/$(basename "$TEST")_$(basename "$IMPL")"

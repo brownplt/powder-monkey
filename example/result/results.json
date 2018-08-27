@@ -1,5 +1,182 @@
 [
   {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/buggy.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/compilefail.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/correct.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/compilefail.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/empty.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/compilefail.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/instructor-authored/wheats/error-on-invalid-inputs.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/compilefail.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/instructor-authored/wheats/value-on-invalid-inputs.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/compilefail.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/buggy.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/exploding.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/correct.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/exploding.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/empty.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/exploding.arr",
+    "result": {
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/exploding.arr_empty.arr/tests.arr:3:0-7:3",
+          "error": true,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/exploding.arr_empty.arr/tests.arr:4:2-4:8",
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/instructor-authored/wheats/error-on-invalid-inputs.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/exploding.arr",
+    "result": {
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/exploding.arr_error-on-invalid-inputs.arr/tests.arr:3:0-7:3",
+          "error": true,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/exploding.arr_error-on-invalid-inputs.arr/tests.arr:4:2-4:8",
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/instructor-authored/wheats/value-on-invalid-inputs.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/exploding.arr",
+    "result": {
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/exploding.arr_value-on-invalid-inputs.arr/tests.arr:3:0-7:3",
+          "error": true,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/exploding.arr_value-on-invalid-inputs.arr/tests.arr:4:2-4:8",
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/buggy.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/failing.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/correct.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/failing.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/empty.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/failing.arr",
+    "result": {
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/failing.arr_empty.arr/tests.arr:3:0-3:17",
+          "error": false,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/failing.arr_empty.arr/tests.arr:3:7-3:13",
+              "passed": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/instructor-authored/wheats/error-on-invalid-inputs.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/failing.arr",
+    "result": {
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/failing.arr_error-on-invalid-inputs.arr/tests.arr:3:0-3:17",
+          "error": false,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/failing.arr_error-on-invalid-inputs.arr/tests.arr:3:7-3:13",
+              "passed": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/instructor-authored/wheats/value-on-invalid-inputs.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/failing.arr",
+    "result": {
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/failing.arr_value-on-invalid-inputs.arr/tests.arr:3:0-3:17",
+          "error": false,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/failing.arr_value-on-invalid-inputs.arr/tests.arr:3:7-3:13",
+              "passed": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/failing/code.arr",
     "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/failing/tests.arr",
     "result": {
@@ -30,6 +207,65 @@
           "tests": [
             {
               "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/failing_passing/tests.arr:3:7-3:13",
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/buggy.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/passing.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/correct.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/passing.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/empty.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/passing.arr",
+    "result": {
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/passing.arr_empty.arr/tests.arr:3:0-3:17",
+          "error": false,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/passing.arr_empty.arr/tests.arr:3:7-3:13",
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/instructor-authored/wheats/error-on-invalid-inputs.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/passing.arr",
+    "result": {
+      "Err": "Compilation"
+    }
+  },
+  {
+    "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/instructor-authored/wheats/value-on-invalid-inputs.arr",
+    "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/passing.arr",
+    "result": {
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/passing.arr_value-on-invalid-inputs.arr/tests.arr:3:0-3:17",
+          "error": false,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/passing.arr_value-on-invalid-inputs.arr/tests.arr:3:7-3:13",
               "passed": true
             }
           ]
