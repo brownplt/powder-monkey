@@ -9,13 +9,15 @@ export PATH="/gpfs/main/home/jswrenn/.nvm/versions/node/v9.2.0/bin:$PATH"
 # 2 or $TEST      path to test
 # 3 or $OUTPUT    path to output folder
 # 4 or $PYRET     path to pyret folder
-# 5 or $PREHOOK   (optional) script to run after copying $TEST to $OUTPUT
+# 5 or $RUNNER    path to runner
+# 6 or $PREHOOK   (optional) script to run after copying $TEST to $OUTPUT
 
 IMPL="$(realpath "${1:-$IMPL}")"
 TEST="$(realpath "${2:-$TEST}")"
 OUTPUT="${3:-$OUTPUT}"
 PYRET="$(realpath "${4:-$PYRET}")"
-PREHOOK="$(realpath "${5:-$PREHOOK}" || echo "")"
+RUNNER="$(realpath "${5:-$RUNNER}")"
+PREHOOK="$(realpath "${6:-$PREHOOK}" || echo "")"
 
 if [ ! -f "$IMPL" ]; then echo "ERROR: No such impl: $IMPL" >&2 || exit 1; fi
 if [ ! -f "$TEST" ]; then echo "ERROR: No such test: $TEST" >&2 || exit 1; fi
@@ -52,7 +54,7 @@ export NODE_PATH="$(realpath ./node_modules)"
 node build/phaseA/pyret.jarr -no-display-progress                       \
    --build-runnable   "$(realpath --relative-to=. "$OUTPUT/tests.arr")" \
    --outfile          "$(realpath --relative-to=. "$OUTPUT")/tests.js"  \
-   --standalone-file  "../runner.js"                                    \
+   --standalone-file  "$RUNNER"                                         \
    --builtin-js-dir   "src/js/trove/"                                   \
    --builtin-arr-dir  "src/arr/trove"                                   \
    --require-config   "src/scripts/standalone-configA.json"             \

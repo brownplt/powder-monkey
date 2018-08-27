@@ -11,6 +11,8 @@ PREHOOK="$(realpath "${2:-$PREHOOK}" || echo "")"
 
 if [ ! -d "$PYRET" ]; then echo "ERROR: No pyret folder: $PYRET" >&2 || exit 1; fi
 
+RUNNER="$(dirname "${BASH_SOURCE[0]}")/runner.js"
+
 # Delete queued jobs if script exits
 function qkill(){ qdel -u $USER >>stdout.log 2>>stderr.log ; }
 trap "qkill" EXIT ERR
@@ -32,6 +34,7 @@ function queue-test(){
        -v TEST="$TEST"          \
        -v OUTPUT="$OUTPUT"      \
        -v PYRET="$PYRET"        \
+       -v RUNNER="$RUNNER"      \
        -v PREHOOK="$PREHOOK"    \
        "$(dirname "${BASH_SOURCE[0]}")/evaluate.sh" || exit 1
 }
