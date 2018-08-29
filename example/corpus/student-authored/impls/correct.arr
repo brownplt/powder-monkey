@@ -15,7 +15,7 @@ fun take-while<T>(pred :: (T -> Boolean), lst :: List<T>) -> List<T>:
 end
 
 fun rainfall(input :: List<Number>) -> Number:
-  filtered = input
+  input
     ^ take-while(_ == -999, _)
     ^ filter(_ >= 0, _)
     ^ mean
