@@ -1,0 +1,3 @@
+[submodule "evaluate/pyret-lang"]
+	path = evaluate/pyret-lang
+	url = git@github.com:brownplt/pyret-lang.git
