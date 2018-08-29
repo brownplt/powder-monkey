@@ -27,7 +27,7 @@ if [ ! -d "$PYRET" ]; then echo "ERROR: No pyret folder: $PYRET" >&2 || exit 1; 
 echo "$OUTPUT"
 
 function report_error() {
-  /gpfs/main/home/jswrenn/bin/jq                                     \
+  jq                                                                 \
        --null-input                                                  \
        --arg IMPL "$IMPL"                                            \
        --arg TEST "$TEST"                                            \
