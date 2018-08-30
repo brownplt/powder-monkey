@@ -57,7 +57,19 @@
     "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/correct.arr",
     "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/exploding.arr",
     "result": {
-      "Err": "Compilation"
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/exploding.arr_correct.arr/tests.arr:3:0-7:3",
+          "error": true,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/exploding.arr_correct.arr/tests.arr:4:2-4:8",
+              "passed": true
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -140,7 +152,19 @@
     "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/correct.arr",
     "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/failing.arr",
     "result": {
-      "Err": "Compilation"
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/failing.arr_correct.arr/tests.arr:3:0-3:17",
+          "error": false,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/failing.arr_correct.arr/tests.arr:3:7-3:13",
+              "passed": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -223,7 +247,19 @@
     "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/correct.arr",
     "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/passing.arr",
     "result": {
-      "Err": "Compilation"
+      "Ok": [
+        {
+          "name": "check-block-1",
+          "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/passing.arr_correct.arr/tests.arr:3:0-3:17",
+          "error": false,
+          "tests": [
+            {
+              "loc": "file:///gpfs/main/home/jswrenn/projects/powder-monkey/example/result/passing.arr_correct.arr/tests.arr:3:7-3:13",
+              "passed": true
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -294,7 +330,7 @@
     "impl": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/impls/correct.arr",
     "tests": "/gpfs/main/home/jswrenn/projects/powder-monkey/example/corpus/student-authored/tests/runfail.arr",
     "result": {
-      "Err": "Compilation"
+      "Err": "Runtime"
     }
   },
   {
