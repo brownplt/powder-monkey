@@ -3,14 +3,10 @@
 :>stdout.log
 :>stderr.log
 
-# 1 or $PYRET       path to pyret folder
-# 2 or $PREHOOK     (optional) script to run after copying each $TEST to $OUTPUT
+# 1 or $PREHOOK     (optional) script to run after copying each $TEST to $OUTPUT
 
-PYRET="$(realpath "${1:-$PYRET}")"
-PREHOOK="$(realpath "${2:-$PREHOOK}" || echo "")"
-
-if [ ! -d "$PYRET" ]; then echo "ERROR: No pyret folder: $PYRET" >&2 || exit 1; fi
-
+PREHOOK="$(realpath "${1:-$PREHOOK}" || echo "")"
+PYRET="$(realpath "$(dirname "${BASH_SOURCE[0]}")/pyret-lang")"
 RUNNER="$(dirname "${BASH_SOURCE[0]}")/runner.js"
 
 # Delete queued jobs if script exits

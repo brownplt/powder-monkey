@@ -1,7 +1,5 @@
 #!/bin/bash
 
-PYRET="$(realpath "${1:-$PYRET}")"
-
 declare -a IMPLS=(corpus/{instructor-authored/wheats,student-authored/impls}/*)
 declare -a TESTS=(corpus/student-authored/tests/*)
 
@@ -19,7 +17,7 @@ for IMPL in ${IMPLS[@]} ; do
          "$(realpath "$TEST")" \
          "$(realpath "result")/$(basename "$TEST")_$(basename "$IMPL")"
   done
-done | ../evaluate/evaluate-many.sh "$PYRET" "prehook.sh"
+done | ../evaluate/evaluate-many.sh "prehook.sh"
 
 # Coalesce results
 jq --slurp '.' result/*/results.json \

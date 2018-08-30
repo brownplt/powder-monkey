@@ -3,8 +3,6 @@ This folder contains a basic 'assignment' which is evaluated using [evaluate-man
 The contents of the [result](./result) folder are produced by executing:
 
 ```
-$ ./evaluate-example.sh /path/to/pyret-lang
+$ ./evaluate-example.sh
 ```
-
-Make sure you have modified [evaluate.sh](../evaluate/evaluate.sh#L4) such that `PATH` includes an appropriate version of node.
 
