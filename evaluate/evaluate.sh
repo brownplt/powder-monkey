@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# CHANGE THIS AS NEEDED
-export PATH="/gpfs/main/home/jswrenn/.nvm/versions/node/v9.2.0/bin:$PATH"
-
 # Evaluate a given implementation against a given test.
 # Arguments:
 # 1 or $IMPL      path to impl
@@ -52,7 +49,7 @@ cd "$PYRET" || exit 1
 export NODE_PATH="$(realpath ./node_modules)"
 # Compile
 # For some reason, this is printing the absolute path to pyret-lang to stdout...
-node build/phaseA/pyret.jarr -no-display-progress                       \
+/local/projects/node.js/current.x86_64/bin/node build/phaseA/pyret.jarr -no-display-progress                       \
    --build-runnable   "$(realpath --relative-to=. "$OUTPUT/tests.arr")" \
    --outfile          "$(realpath --relative-to=. "$OUTPUT")/tests.js"  \
    --standalone-file  "$RUNNER"                                         \
@@ -95,7 +92,7 @@ trap finish EXIT
 report_error "Timeout"
 
 # Run
-node "$(realpath --relative-to=. "$OUTPUT")/tests.js" \
+/local/projects/node.js/current.x86_64/bin/node "$(realpath --relative-to=. "$OUTPUT")/tests.js" \
   2>>"$OUTPUT/error.txt" >"$OUTPUT/raw.json"
 
 if [ -s "$OUTPUT/error.txt" ] ; then
