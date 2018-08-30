@@ -17,7 +17,7 @@ for IMPL in ${IMPLS[@]} ; do
          "$(realpath "$TEST")" \
          "$(realpath "result")/$(basename "$TEST")_$(basename "$IMPL")"
   done
-done | ../evaluate/evaluate-many.sh "prehook.sh"
+done | /home/jswrenn/projects/powder-monkey/evaluate/evaluate-many.sh "prehook.sh"
 
 # Coalesce results
 jq --slurp '.' result/*/results.json \
