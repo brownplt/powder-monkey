@@ -43,7 +43,8 @@ report_error "Unknown"
 cp "$TEST" "$OUTPUT/tests.arr"
 
 if [ -f "$PREHOOK" ]; then
-  ( cd "$OUTPUT" && bash "$PREHOOK" )
+  cd "$OUTPUT"
+  source "$PREHOOK" "$IMPL"
 fi
 
 # Compile and Execute
