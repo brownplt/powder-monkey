@@ -80,7 +80,7 @@ function finish() {
       "$OUTPUT/raw.json" \
         >"$OUTPUT/results.json" 2>>"$OUTPUT/error.txt"
   fi
-  rm -f "$OUTPUT/tests.js" "$OUTPUT/tests.arr"
+  rm -f "$OUTPUT/tests.js"
   if [ ! -s "$OUTPUT/error.txt" ] ; then
     rm -f "$OUTPUT/error.txt"
   fi
