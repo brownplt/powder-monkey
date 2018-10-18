@@ -21,7 +21,7 @@ if [ ! -f "$TEST" ]; then echo "ERROR: No such test: $TEST" >&2 || exit 1; fi
 if [ ! -d "$OUTPUT" ]; then mkdir -p "$OUTPUT" >&2 || exit 1; fi
 if [ ! -d "$PYRET" ]; then echo "ERROR: No pyret folder: $PYRET" >&2 || exit 1; fi
 
-echo "$OUTPUT"
+CACHE_DIR="$(mktemp -d)"
 
 function report_error() {
   jq                                                                 \
@@ -55,6 +55,7 @@ export NODE_PATH="$(realpath ./node_modules)"
    --standalone-file  "$RUNNER"                                         \
    --builtin-js-dir   "src/js/trove/"                                   \
    --builtin-arr-dir  "src/arr/trove"                                   \
+   --compiled-dir     "$CACHE_DIR"                                      \
    --require-config   "src/scripts/standalone-configA.json"             \
   >/dev/null 2>>"$OUTPUT/error.txt"
 
@@ -80,9 +81,9 @@ function finish() {
       "$OUTPUT/raw.json" \
         >"$OUTPUT/results.json" 2>>"$OUTPUT/error.txt"
   fi
-  rm -f "$OUTPUT/tests.js"
   if [ ! -s "$OUTPUT/error.txt" ] ; then
     rm -f "$OUTPUT/error.txt"
+    rm -f "$OUTPUT/tests.js"
   fi
 }
 
@@ -94,6 +95,8 @@ report_error "Timeout"
 # Run
 /local/projects/node.js/current.x86_64/bin/node "$(realpath --relative-to=. "$OUTPUT")/tests.js" \
   2>>"$OUTPUT/error.txt" >"$OUTPUT/raw.json"
+
+rm -rf "$CACHE_DIR"
 
 if [ -s "$OUTPUT/error.txt" ] ; then
   if grep -q "memory" "$OUTPUT/error.txt"; then
